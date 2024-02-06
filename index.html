@@ -50,14 +50,38 @@
       </div>
 
       <div class="buttons-container">
-        <button class="btn btn-primary">Criptografar</button>
-        <button class="btn btn-secondary">Descriptografar</button>
+        <button class="btn btn-primary btn-encrypt">Criptografar</button>
+        <button class="btn btn-secondary btn-decrypt">Descriptografar</button>
       </div>
 
-      <div class="empty-messages-warning">
-        <strong>Nenhuma mensagem encontrada</strong>
-        <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
+      <div class="results-container">
+        <div class="empty-messages-warning">
+          <img
+            class="empty-messages-warning__image"
+            src="./assets/empty-messages-image.svg"
+            alt=""
+          />
+          <strong>Nenhuma mensagem encontrada</strong>
+          <p>
+            Digite um texto que você deseja criptografar ou descriptografar.
+          </p>
+        </div>
+
+        <div class="encrypted-message">
+          <p class="encrypted-message-result">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+            cumque eum odio vero veritatis ipsum est mollitia quasi deserunt
+            sequi.
+          </p>
+          <button
+            onclick="copyToClipboard()"
+            class="btn btn-secondary btn-decrypt"
+          >
+            Copiar
+          </button>
+        </div>
       </div>
     </main>
   </body>
 </html>
+<script src="./main.js"></script>
