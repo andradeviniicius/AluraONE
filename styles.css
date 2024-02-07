@@ -24,6 +24,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: start;
+  margin-bottom: 80px;
 }
 .header-logo {
 }
@@ -31,12 +32,14 @@ body {
 }
 
 .main-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  gap: 64px;
   height: 90%;
+  margin-top: 80px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  justify-items: center;
+  padding-bottom: 0;
 }
 
 .decodificador-input-group {
@@ -71,6 +74,7 @@ body {
   font-size: 12px;
 
   gap: 8px;
+  margin-top: 20px;
 
   width: 100%;
 }
@@ -94,9 +98,10 @@ body {
 
 .buttons-container {
   display: flex;
-  justify-content: space-around;
   width: 100%;
-  gap: 5%;
+  height: 100%;
+  gap: 15px;
+  flex-direction: column;
 }
 
 .btn {
@@ -120,7 +125,6 @@ body {
 .results-container {
   border-radius: 32px;
   background-color: #fff;
-  width: 327px;
   width: 327px;
 
   padding: 24px;
@@ -158,13 +162,20 @@ body {
   justify-content: space-between;
 }
 
-@media (min-width: 700px) {
+.encrypted-message-result {
+  margin-bottom: 40px;
+  line-break: anywhere;
+}
+
+@media (min-width: 769px) {
   .main-content {
     display: grid;
     grid-template-areas:
       "left right"
       "left right";
     padding-bottom: 0;
+    grid-template-columns: none;
+    margin-top: 0px;
   }
 
   .results-container {
@@ -173,5 +184,18 @@ body {
   }
   .empty-messages-warning__image {
     display: block;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 5%;
+    flex-direction: row;
+    height: fit-content;
+  }
+
+  .header {
+    margin-bottom: 0px;
   }
 }
