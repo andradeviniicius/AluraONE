@@ -19,7 +19,13 @@ encryptButton.addEventListener("click", () => {
 });
 
 decryptButton.addEventListener("click", () => {
+  if (!isEncrypted()) {
+    alert("Não há o que descriptografar");
+    return;
+  }
   if (isUserInputValid()) {
+    empty_message_warning.style.display = "none";
+    encrypted_message.style.display = "flex";
     result_text.innerHTML = decryptMessage(user_input.value);
   }
 });
@@ -34,7 +40,7 @@ function isUserInputValid() {
     return false;
   }
 
-  return true
+  return true;
 }
 
 function encryptMessage(string) {
@@ -60,18 +66,8 @@ function encryptMessage(string) {
 }
 
 function decryptMessage(string) {
-  isEncrypted = null;
-
-  validOptions.every((el) => {
-    if (user_input.value.includes(el)) {
-      isEncrypted = true;
-      return false;
-    }
-    isEncrypted = false;
-    return true;
-  });
-
-  if (!isEncrypted) {
+  console.log(isEncrypted());
+  if (!isEncrypted()) {
     alert("Não há o que descriptografar");
     return;
   }
@@ -82,4 +78,20 @@ function decryptMessage(string) {
     .replace(/imes/g, "i")
     .replace(/ober/g, "o")
     .replace(/ufat/g, "u");
+}
+
+function isEncrypted() {
+  let isEncrypted = null;
+
+  validOptions.every((el) => {
+    if (user_input.value.includes(el)) {
+      isEncrypted = true;
+      return false;
+    }
+    isEncrypted = false;
+    return true;
+  });
+
+  console.log(isEncrypted);
+  return isEncrypted;
 }
